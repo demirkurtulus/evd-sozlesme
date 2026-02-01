@@ -3,14 +3,18 @@ import { prisma } from '@documenso/prisma';
 import { mapDocumentIdToSecondaryId, mapTemplateIdToSecondaryId } from '../../utils/envelope';
 
 export const incrementDocumentId = async () => {
-  const documentIdCounter = await prisma.counter.update({
+  const documentIdCounter = await prisma.counter.upsert({
     where: {
       id: 'document',
     },
-    data: {
+    update: {
       value: {
         increment: 1,
       },
+    },
+    create: {
+      id: 'document',
+      value: 1,
     },
   });
 
@@ -21,14 +25,18 @@ export const incrementDocumentId = async () => {
 };
 
 export const incrementTemplateId = async () => {
-  const templateIdCounter = await prisma.counter.update({
+  const templateIdCounter = await prisma.counter.upsert({
     where: {
       id: 'template',
     },
-    data: {
+    update: {
       value: {
         increment: 1,
       },
+    },
+    create: {
+      id: 'template',
+      value: 1,
     },
   });
 
