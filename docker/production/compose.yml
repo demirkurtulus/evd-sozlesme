@@ -13,7 +13,7 @@ services:
       timeout: 5s
       retries: 5
     volumes:
-      - database:/var/lib/postgresql/data
+      - database_v2:/var/lib/postgresql/data
 
   documenso:
     build:
@@ -70,4 +70,4 @@ services:
       - /opt/documenso/cert.p12:/opt/documenso/cert.p12:ro
 
 volumes:
-  database:
+  database_v2:
