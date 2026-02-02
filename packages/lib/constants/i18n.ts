@@ -15,7 +15,7 @@ export const SUPPORTED_LANGUAGE_CODES = [
   'tr',
 ] as const;
 
-export const ZSupportedLanguageCodeSchema = z.enum(SUPPORTED_LANGUAGE_CODES).catch('en');
+export const ZSupportedLanguageCodeSchema = z.enum(SUPPORTED_LANGUAGE_CODES).catch('tr');
 
 export type SupportedLanguageCodes = (typeof SUPPORTED_LANGUAGE_CODES)[number];
 
@@ -34,7 +34,7 @@ export type I18nLocaleData = {
 export const APP_I18N_OPTIONS = {
   supportedLangs: SUPPORTED_LANGUAGE_CODES,
   sourceLang: 'en',
-  defaultLocale: 'en-US',
+  defaultLocale: 'tr',
 } as const;
 
 type SupportedLanguage = {
