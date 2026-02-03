@@ -39,6 +39,8 @@ services:
       - 'CERT_INFO_EMAIL=${CERT_INFO_EMAIL:-example@gmail.com}'
       - 'NEXT_PUBLIC_DISABLE_SIGNUP=${DISABLE_LOGIN:-false}'
       - 'SERVICE_PASSWORD_DOCUMENSO=${SERVICE_PASSWORD_DOCUMENSO:-}'
+    ports:
+      - ${PORT:-3000}:${PORT:-3000}
     healthcheck:
       test:
         - CMD-SHELL
